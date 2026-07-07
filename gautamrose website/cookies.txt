@@ -1,0 +1,11 @@
+
+# This file format is compatible with Netscape cookies
+www.gautamrose.net	TRUE	/	FALSE	1999999999	ci_session	2012daae6eb57f7ebb60caad7a2e1b9e66d1b300
+www.pinterest.com	TRUE	/	FALSE	1999999999	csrftoken	14139e46dda10863d5c4cc0324fa9644
+.pinterest.com	TRUE	/	FALSE	1999999999	_pinterest_sess	TWc9PSZkc1gvK09icFVtU2xEc291bDlHWUluUTB1M2x6UWVPMFpRZUVGWTVUTVN2MUdmcm9LU2czdnRtWnA3SlFaZzdjK3NHT0oyTnFvdCsybVhWYkVLOHB0UEMydWVSZWZEVmtGNGxYTnNrSE5nSGQraHFNREk3ZkZOV010NUk1dG5EQiZ6c2dRQzBUVExhMUt4eitsRmxhMTZsUWJtcU09
+www.pinterest.com	TRUE	/	FALSE	1999999999	samesite	none
+.pinterest.com	TRUE	/	FALSE	1999999999	_auth	0
+www.pinterest.com	TRUE	/	FALSE	1999999999	_routing_id	25020258-5315-4624-a6f7-e4cb79d2fbd1"
+www.gautamrose.net	TRUE	/	FALSE	1999999999	auth	5ab591c1ac9e26ebbcf20ae6cb0431bc
+www.gautamrose.net	TRUE	/	FALSE	1999999999	SameSite	None
+
