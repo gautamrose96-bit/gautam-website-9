@@ -7,6 +7,29 @@
 
   var STORAGE_KEY = "gautamrose_cart_v1";
 
+  var SITE_CATEGORIES = [
+    { label: "Mandala Art", href: "category/mandala-art-hub.html" },
+    { label: "Wall Art", href: "category/wall-art-hub.html" },
+    { label: "Paintings", href: "category/paintings-hub.html" },
+    { label: "Room Decor", href: "category/room-decor-hub.html" },
+    { label: "Craft Items", href: "category/craft-items-hub.html" },
+    { label: "Healing Quotes Art", href: "category/healing-quotes-hub.html" },
+  ];
+
+  function getSiteRoot() {
+    var script =
+      document.currentScript ||
+      Array.prototype.slice
+        .call(document.getElementsByTagName("script"))
+        .find(function (s) {
+          return s.src && s.src.indexOf("site-cart.js") !== -1;
+        });
+    if (!script) return "";
+    return script.src.replace(/assets\/js\/site-cart\.js.*$/, "");
+  }
+
+  var ROOT = getSiteRoot();
+
   function readCart() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
@@ -51,9 +74,37 @@
       '<div id="site-cart-items"></div>' +
       '<div id="site-cart-footer">' +
       '<div class="site-cart-total"><span>Total</span><span id="site-cart-total-amount">Rs 0</span></div>' +
-      '<a href="checkout.html" id="site-cart-checkout">Checkout</a>' +
+      '<a href="' + ROOT + 'checkout.html" id="site-cart-checkout">Checkout</a>' +
       "</div>";
     document.body.appendChild(drawer);
+
+    // Floating "Shop Categories" menu
+    var catToggle = document.createElement("button");
+    catToggle.id = "site-categories-toggle";
+    catToggle.setAttribute("aria-label", "Shop categories");
+    catToggle.innerHTML = '<i class="fa fa-th-large" aria-hidden="true"></i>';
+    document.body.appendChild(catToggle);
+
+    var catMenu = document.createElement("div");
+    catMenu.id = "site-categories-menu";
+    catMenu.innerHTML =
+      '<div class="site-categories-header">Shop by Category</div>' +
+      '<ul>' +
+      SITE_CATEGORIES.map(function (c) {
+        return '<li><a href="' + ROOT + c.href + '">' + c.label + "</a></li>";
+      }).join("") +
+      '<li><a href="' + ROOT + 'best-sellers.html">Best Sellers</a></li>' +
+      "</ul>";
+    document.body.appendChild(catMenu);
+
+    catToggle.addEventListener("click", function () {
+      catMenu.classList.toggle("open");
+    });
+    document.addEventListener("click", function (e) {
+      if (!catMenu.contains(e.target) && e.target !== catToggle) {
+        catMenu.classList.remove("open");
+      }
+    });
 
     var toast = document.createElement("div");
     toast.id = "site-cart-toast";
